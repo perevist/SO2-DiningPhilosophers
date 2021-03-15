@@ -4,6 +4,9 @@ import java.util.Random;
 
 public class Philosopher extends Thread {
 
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+
     private int id;
     private Chopstick firstChopstick;
     private Chopstick secondChopstick;
@@ -30,7 +33,7 @@ public class Philosopher extends Thread {
     }
 
     private void eat() {
-        System.out.println(this + " is eating");
+        System.out.println(ANSI_RED + "\n" + this + " is eating" + ANSI_RESET);
         eatingCounter++;
         try {
             Thread.sleep(random.nextInt((7000 - 5000) + 1) + 5000);
@@ -40,7 +43,7 @@ public class Philosopher extends Thread {
     }
 
     private void think() {
-        System.out.println(this + " is thinking...");
+        System.out.println("\n" + this + " is thinking...");
         try {
             Thread.sleep(random.nextInt((7000 - 5000) + 1) + 5000);
         } catch (InterruptedException e) {

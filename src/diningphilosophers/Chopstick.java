@@ -14,11 +14,11 @@ public class Chopstick {
 
     public void pickUp(Philosopher philosopher) {
         lock.lock();
-        System.out.println(philosopher + " picked up " + this);
+        System.out.println("\n" + philosopher + " picked up " + this);
     }
 
     public void putDown(Philosopher philosopher) {
-        System.out.println(philosopher + " put down " + this);
+        System.out.println("\n" + philosopher + " put down " + this);
         lock.unlock();
     }
 
